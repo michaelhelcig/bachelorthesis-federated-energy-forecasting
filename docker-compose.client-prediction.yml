@@ -1,0 +1,732 @@
+
+version: '3'
+services:
+  
+  federated-client-0106fa6a-06d7-4991-a254-93d4ee1464a3:
+    container_name: federated-client-0106fa6a-06d7-4991-a254-93d4ee1464a3
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=0106fa6a-06d7-4991-a254-93d4ee1464a3
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-0106fa6a-06d7-4991-a254-93d4ee1464a3-data:/data
+      - /tmp/test_data/0106fa6a-06d7-4991-a254-93d4ee1464a3:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-1df9e630-c947-4b9a-89e2-c77b643506c5:
+    container_name: federated-client-1df9e630-c947-4b9a-89e2-c77b643506c5
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=1df9e630-c947-4b9a-89e2-c77b643506c5
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-1df9e630-c947-4b9a-89e2-c77b643506c5-data:/data
+      - /tmp/test_data/1df9e630-c947-4b9a-89e2-c77b643506c5:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-2bbfa73e-2a2e-473b-8d1c-f6b87bff8403:
+    container_name: federated-client-2bbfa73e-2a2e-473b-8d1c-f6b87bff8403
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=2bbfa73e-2a2e-473b-8d1c-f6b87bff8403
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-2bbfa73e-2a2e-473b-8d1c-f6b87bff8403-data:/data
+      - /tmp/test_data/2bbfa73e-2a2e-473b-8d1c-f6b87bff8403:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-50eb6cac-7dbb-44ae-83c6-9b4879a57425:
+    container_name: federated-client-50eb6cac-7dbb-44ae-83c6-9b4879a57425
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=50eb6cac-7dbb-44ae-83c6-9b4879a57425
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-50eb6cac-7dbb-44ae-83c6-9b4879a57425-data:/data
+      - /tmp/test_data/50eb6cac-7dbb-44ae-83c6-9b4879a57425:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-6045bd8d-1754-4963-b3cb-c703110ac5ac:
+    container_name: federated-client-6045bd8d-1754-4963-b3cb-c703110ac5ac
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=6045bd8d-1754-4963-b3cb-c703110ac5ac
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-6045bd8d-1754-4963-b3cb-c703110ac5ac-data:/data
+      - /tmp/test_data/6045bd8d-1754-4963-b3cb-c703110ac5ac:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-60f50416-f2b0-4191-b82d-c71ba439d558:
+    container_name: federated-client-60f50416-f2b0-4191-b82d-c71ba439d558
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=60f50416-f2b0-4191-b82d-c71ba439d558
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-60f50416-f2b0-4191-b82d-c71ba439d558-data:/data
+      - /tmp/test_data/60f50416-f2b0-4191-b82d-c71ba439d558:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-70118ad9-4de9-473e-8415-27e5f641a7a1:
+    container_name: federated-client-70118ad9-4de9-473e-8415-27e5f641a7a1
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=70118ad9-4de9-473e-8415-27e5f641a7a1
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-70118ad9-4de9-473e-8415-27e5f641a7a1-data:/data
+      - /tmp/test_data/70118ad9-4de9-473e-8415-27e5f641a7a1:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-98e065ed-de0e-4973-8e43-7020defe23b0:
+    container_name: federated-client-98e065ed-de0e-4973-8e43-7020defe23b0
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=98e065ed-de0e-4973-8e43-7020defe23b0
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-98e065ed-de0e-4973-8e43-7020defe23b0-data:/data
+      - /tmp/test_data/98e065ed-de0e-4973-8e43-7020defe23b0:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-a62e58d7-8b9a-4531-9ca5-323d136dcec0:
+    container_name: federated-client-a62e58d7-8b9a-4531-9ca5-323d136dcec0
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=a62e58d7-8b9a-4531-9ca5-323d136dcec0
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-a62e58d7-8b9a-4531-9ca5-323d136dcec0-data:/data
+      - /tmp/test_data/a62e58d7-8b9a-4531-9ca5-323d136dcec0:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-a7b10e3f-e8a6-4f58-affd-c50b5f2c4201:
+    container_name: federated-client-a7b10e3f-e8a6-4f58-affd-c50b5f2c4201
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=a7b10e3f-e8a6-4f58-affd-c50b5f2c4201
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-a7b10e3f-e8a6-4f58-affd-c50b5f2c4201-data:/data
+      - /tmp/test_data/a7b10e3f-e8a6-4f58-affd-c50b5f2c4201:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-aa13d3f3-04b2-43d1-b9ba-16adf87a4bc5:
+    container_name: federated-client-aa13d3f3-04b2-43d1-b9ba-16adf87a4bc5
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=aa13d3f3-04b2-43d1-b9ba-16adf87a4bc5
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-aa13d3f3-04b2-43d1-b9ba-16adf87a4bc5-data:/data
+      - /tmp/test_data/aa13d3f3-04b2-43d1-b9ba-16adf87a4bc5:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-ba7b379a-829d-41cc-bc5d-04eeef3c5020:
+    container_name: federated-client-ba7b379a-829d-41cc-bc5d-04eeef3c5020
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=ba7b379a-829d-41cc-bc5d-04eeef3c5020
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-ba7b379a-829d-41cc-bc5d-04eeef3c5020-data:/data
+      - /tmp/test_data/ba7b379a-829d-41cc-bc5d-04eeef3c5020:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-c8bf65f6-9940-4c65-8ff3-eac19451b1e3:
+    container_name: federated-client-c8bf65f6-9940-4c65-8ff3-eac19451b1e3
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=c8bf65f6-9940-4c65-8ff3-eac19451b1e3
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-c8bf65f6-9940-4c65-8ff3-eac19451b1e3-data:/data
+      - /tmp/test_data/c8bf65f6-9940-4c65-8ff3-eac19451b1e3:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-e95b797d-3287-4eaa-b80a-771e840e2d83:
+    container_name: federated-client-e95b797d-3287-4eaa-b80a-771e840e2d83
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=e95b797d-3287-4eaa-b80a-771e840e2d83
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-e95b797d-3287-4eaa-b80a-771e840e2d83-data:/data
+      - /tmp/test_data/e95b797d-3287-4eaa-b80a-771e840e2d83:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-ef5b7b47-37d4-4011-8b9f-fffd3020b0d9:
+    container_name: federated-client-ef5b7b47-37d4-4011-8b9f-fffd3020b0d9
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=ef5b7b47-37d4-4011-8b9f-fffd3020b0d9
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-ef5b7b47-37d4-4011-8b9f-fffd3020b0d9-data:/data
+      - /tmp/test_data/ef5b7b47-37d4-4011-8b9f-fffd3020b0d9:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-018daa06-e6f7-4551-b32c-1a41fc8e0781:
+    container_name: federated-client-018daa06-e6f7-4551-b32c-1a41fc8e0781
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=018daa06-e6f7-4551-b32c-1a41fc8e0781
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-018daa06-e6f7-4551-b32c-1a41fc8e0781-data:/data
+      - /tmp/test_data/018daa06-e6f7-4551-b32c-1a41fc8e0781:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-13d3ac14-1ba1-4271-bf0f-39e219b97aca:
+    container_name: federated-client-13d3ac14-1ba1-4271-bf0f-39e219b97aca
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=13d3ac14-1ba1-4271-bf0f-39e219b97aca
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-13d3ac14-1ba1-4271-bf0f-39e219b97aca-data:/data
+      - /tmp/test_data/13d3ac14-1ba1-4271-bf0f-39e219b97aca:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-1530d0df-759c-482f-9450-c5e079fbc7ef:
+    container_name: federated-client-1530d0df-759c-482f-9450-c5e079fbc7ef
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=1530d0df-759c-482f-9450-c5e079fbc7ef
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-1530d0df-759c-482f-9450-c5e079fbc7ef-data:/data
+      - /tmp/test_data/1530d0df-759c-482f-9450-c5e079fbc7ef:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-189043c3-35bd-43f9-9ca7-0136c10ea23d:
+    container_name: federated-client-189043c3-35bd-43f9-9ca7-0136c10ea23d
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=189043c3-35bd-43f9-9ca7-0136c10ea23d
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-189043c3-35bd-43f9-9ca7-0136c10ea23d-data:/data
+      - /tmp/test_data/189043c3-35bd-43f9-9ca7-0136c10ea23d:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-19ee674c-fda3-45ee-90b2-8a4c8711459b:
+    container_name: federated-client-19ee674c-fda3-45ee-90b2-8a4c8711459b
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=19ee674c-fda3-45ee-90b2-8a4c8711459b
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-19ee674c-fda3-45ee-90b2-8a4c8711459b-data:/data
+      - /tmp/test_data/19ee674c-fda3-45ee-90b2-8a4c8711459b:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-3024016a-4586-4f6a-b855-69ef7b91b140:
+    container_name: federated-client-3024016a-4586-4f6a-b855-69ef7b91b140
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=3024016a-4586-4f6a-b855-69ef7b91b140
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-3024016a-4586-4f6a-b855-69ef7b91b140-data:/data
+      - /tmp/test_data/3024016a-4586-4f6a-b855-69ef7b91b140:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-30affaa5-128f-4068-95fb-efd40ea860b5:
+    container_name: federated-client-30affaa5-128f-4068-95fb-efd40ea860b5
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=30affaa5-128f-4068-95fb-efd40ea860b5
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-30affaa5-128f-4068-95fb-efd40ea860b5-data:/data
+      - /tmp/test_data/30affaa5-128f-4068-95fb-efd40ea860b5:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-5767ef9c-25e9-47d2-8249-e044a29e0458:
+    container_name: federated-client-5767ef9c-25e9-47d2-8249-e044a29e0458
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=5767ef9c-25e9-47d2-8249-e044a29e0458
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-5767ef9c-25e9-47d2-8249-e044a29e0458-data:/data
+      - /tmp/test_data/5767ef9c-25e9-47d2-8249-e044a29e0458:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb:
+    container_name: federated-client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb-data:/data
+      - /tmp/test_data/88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-8b806cdc-8360-425d-a70d-d2d666097d3e:
+    container_name: federated-client-8b806cdc-8360-425d-a70d-d2d666097d3e
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=8b806cdc-8360-425d-a70d-d2d666097d3e
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-8b806cdc-8360-425d-a70d-d2d666097d3e-data:/data
+      - /tmp/test_data/8b806cdc-8360-425d-a70d-d2d666097d3e:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-947c1748-df07-4ff8-845b-073e7ac8eeb9:
+    container_name: federated-client-947c1748-df07-4ff8-845b-073e7ac8eeb9
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=947c1748-df07-4ff8-845b-073e7ac8eeb9
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-947c1748-df07-4ff8-845b-073e7ac8eeb9-data:/data
+      - /tmp/test_data/947c1748-df07-4ff8-845b-073e7ac8eeb9:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-a2d30421-5731-435a-b7ba-03d37ff0e0ce:
+    container_name: federated-client-a2d30421-5731-435a-b7ba-03d37ff0e0ce
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=a2d30421-5731-435a-b7ba-03d37ff0e0ce
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-a2d30421-5731-435a-b7ba-03d37ff0e0ce-data:/data
+      - /tmp/test_data/a2d30421-5731-435a-b7ba-03d37ff0e0ce:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-ad5085d3-c72a-4a63-bf4f-56cb767b4633:
+    container_name: federated-client-ad5085d3-c72a-4a63-bf4f-56cb767b4633
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=ad5085d3-c72a-4a63-bf4f-56cb767b4633
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-ad5085d3-c72a-4a63-bf4f-56cb767b4633-data:/data
+      - /tmp/test_data/ad5085d3-c72a-4a63-bf4f-56cb767b4633:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-b8c3d9bf-c225-44d3-a64f-11adb3aa0351:
+    container_name: federated-client-b8c3d9bf-c225-44d3-a64f-11adb3aa0351
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=b8c3d9bf-c225-44d3-a64f-11adb3aa0351
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-b8c3d9bf-c225-44d3-a64f-11adb3aa0351-data:/data
+      - /tmp/test_data/b8c3d9bf-c225-44d3-a64f-11adb3aa0351:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+  federated-client-d34f66ce-a330-44f1-a8a6-b04e030ffff1:
+    container_name: federated-client-d34f66ce-a330-44f1-a8a6-b04e030ffff1
+    build:
+      context: app
+      dockerfile: docker/client/Dockerfile
+    environment:
+      - SITE_ID=d34f66ce-a330-44f1-a8a6-b04e030ffff1
+      - SERVER_ADDRESS=federated-server
+      - SERVER_PORT=5555
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=False
+      - RUN_PREDICTION=True
+    volumes:
+      - client-d34f66ce-a330-44f1-a8a6-b04e030ffff1-data:/data
+      - /tmp/test_data/d34f66ce-a330-44f1-a8a6-b04e030ffff1:/test_data:ro
+      - /tmp/shared_data:/shared_data
+    networks:
+      - federated-network
+  
+
+volumes:
+  client-0106fa6a-06d7-4991-a254-93d4ee1464a3-data:
+    external: false
+  client-1df9e630-c947-4b9a-89e2-c77b643506c5-data:
+    external: false
+  client-2bbfa73e-2a2e-473b-8d1c-f6b87bff8403-data:
+    external: false
+  client-50eb6cac-7dbb-44ae-83c6-9b4879a57425-data:
+    external: false
+  client-6045bd8d-1754-4963-b3cb-c703110ac5ac-data:
+    external: false
+  client-60f50416-f2b0-4191-b82d-c71ba439d558-data:
+    external: false
+  client-70118ad9-4de9-473e-8415-27e5f641a7a1-data:
+    external: false
+  client-98e065ed-de0e-4973-8e43-7020defe23b0-data:
+    external: false
+  client-a62e58d7-8b9a-4531-9ca5-323d136dcec0-data:
+    external: false
+  client-a7b10e3f-e8a6-4f58-affd-c50b5f2c4201-data:
+    external: false
+  client-aa13d3f3-04b2-43d1-b9ba-16adf87a4bc5-data:
+    external: false
+  client-ba7b379a-829d-41cc-bc5d-04eeef3c5020-data:
+    external: false
+  client-c8bf65f6-9940-4c65-8ff3-eac19451b1e3-data:
+    external: false
+  client-e95b797d-3287-4eaa-b80a-771e840e2d83-data:
+    external: false
+  client-ef5b7b47-37d4-4011-8b9f-fffd3020b0d9-data:
+    external: false
+  client-018daa06-e6f7-4551-b32c-1a41fc8e0781-data:
+    external: false
+  client-13d3ac14-1ba1-4271-bf0f-39e219b97aca-data:
+    external: false
+  client-1530d0df-759c-482f-9450-c5e079fbc7ef-data:
+    external: false
+  client-189043c3-35bd-43f9-9ca7-0136c10ea23d-data:
+    external: false
+  client-19ee674c-fda3-45ee-90b2-8a4c8711459b-data:
+    external: false
+  client-3024016a-4586-4f6a-b855-69ef7b91b140-data:
+    external: false
+  client-30affaa5-128f-4068-95fb-efd40ea860b5-data:
+    external: false
+  client-5767ef9c-25e9-47d2-8249-e044a29e0458-data:
+    external: false
+  client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb-data:
+    external: false
+  client-8b806cdc-8360-425d-a70d-d2d666097d3e-data:
+    external: false
+  client-947c1748-df07-4ff8-845b-073e7ac8eeb9-data:
+    external: false
+  client-a2d30421-5731-435a-b7ba-03d37ff0e0ce-data:
+    external: false
+  client-ad5085d3-c72a-4a63-bf4f-56cb767b4633-data:
+    external: false
+  client-b8c3d9bf-c225-44d3-a64f-11adb3aa0351-data:
+    external: false
+  client-d34f66ce-a330-44f1-a8a6-b04e030ffff1-data:
+    external: false
+  
+
+networks:
+  federated-network:
+    driver: bridge
+    external: false

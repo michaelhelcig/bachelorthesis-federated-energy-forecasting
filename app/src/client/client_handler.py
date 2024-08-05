@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import fcntl
+import json
 
 from src.client.federated_client import FederatedClient
 import src.shared.constants as constants
@@ -38,7 +39,7 @@ if __name__ == "__main__":
 
     site = Site(
         site_id=site_info['site_id'],
-        cluster=int(site_info['cluster']),
+        clusters=json.loads(site_info["clusters"].replace("\'", "\"")),
         lat=float(site_info['lat']),
         lng=float(site_info['lng']),
         zip=int(site_info['zip']),
@@ -60,7 +61,27 @@ if __name__ == "__main__":
                 print("Setting window data to training data")
                 window_data = data[mask]
 
-            client.process_data(window_data)
+            # doing predictions first
+            df_power, df_energy = client.predict_data(window_data)
+
+            if df_power is not None and df_energy is not None:
+                with open(f'{shared_data_path}/training_all_power.csv', 'a') as f:
+                    fcntl.flock(f, fcntl.LOCK_EX)
+                    df_power.to_csv(f, header=f.tell()==0, index=False)
+                    fcntl.flock(f, fcntl.LOCK_UN)
+
+                with open(f'{shared_data_path}/training_all_acc_energy.csv', 'a') as f:
+                    fcntl.flock(f, fcntl.LOCK_EX)
+                    df_energy.to_csv(f, header=f.tell()==0, index=False)
+                    fcntl.flock(f, fcntl.LOCK_UN)
+
+            loss_df = client.process_data(window_data)
+            if loss_df is not None:
+                with open(f'{shared_data_path}/loss_all.csv', 'a') as f:
+                    fcntl.flock(f, fcntl.LOCK_EX)
+                    loss_df.to_csv(f, header=f.tell()==0, index=False)
+                    fcntl.flock(f, fcntl.LOCK_UN)
+
 
     if run_prediction:
         for window in test_windows.values:
@@ -72,10 +93,15 @@ if __name__ == "__main__":
                 print("Setting window data to test data")
                 window_data = data[mask]
 
-            df = client.predict_data(window_data)
+            df_power, df_energy = client.predict_data(window_data)
 
-            if df is not None:
-                with open(f'{shared_data_path}/actual_vs_predicted_all.csv', 'a') as f:
+            if df_power is not None and df_energy is not None:
+                with open(f'{shared_data_path}/prediction_all_power.csv', 'a') as f:
                     fcntl.flock(f, fcntl.LOCK_EX)
-                    df.to_csv(f, header=f.tell()==0, index=False)
+                    df_power.to_csv(f, header=f.tell()==0, index=False)
+                    fcntl.flock(f, fcntl.LOCK_UN)
+
+                with open(f'{shared_data_path}/prediction_all_acc_energy.csv', 'a') as f:
+                    fcntl.flock(f, fcntl.LOCK_EX)
+                    df_energy.to_csv(f, header=f.tell()==0, index=False)
                     fcntl.flock(f, fcntl.LOCK_UN)

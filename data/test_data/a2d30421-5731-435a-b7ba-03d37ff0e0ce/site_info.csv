@@ -1,9 +1,9 @@
 ,26
 site_id,a2d30421-5731-435a-b7ba-03d37ff0e0ce
-cluster,0
+clusters,"{'location': -1, 'orientation': 2}"
 lat,0
 lng,0
 zip,9220
 country,AT
-kwp,194.0
+kwp,124.0
 weather_data,True

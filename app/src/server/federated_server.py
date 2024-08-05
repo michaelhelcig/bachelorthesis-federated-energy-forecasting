@@ -64,7 +64,12 @@ class FederatedServer:
         
 
         if aggregation_level == AggregationLevel.cluster:
-            self.scm.update_cluster_model(site_id, model_data, model_delta_meta)
+            cluster_key = request.args.get('cluster_key')
+
+            if not cluster_key or self.scm.get_cluster_for_site(site_id, cluster_key) is None:
+                return jsonify({'error': 'Cluster key not provided or cluster with key not found'}), 400
+            
+            self.scm.update_cluster_model(site_id, cluster_key, model_data, model_delta_meta)
         elif aggregation_level == AggregationLevel.global_:
             self.scm.update_global_model(model_data, model_delta_meta)
         else:
@@ -76,7 +81,12 @@ class FederatedServer:
 
     def get_model(self, aggregation_level: AggregationLevel, site_id: str):
         if aggregation_level == AggregationLevel.cluster:
-            model_data = self.scm.get_cluster_model(site_id)
+            cluster_key = request.args.get('cluster_key')
+
+            if not cluster_key or self.scm.get_cluster_for_site(site_id, cluster_key) is None:
+                return jsonify({'error': 'Cluster key not provided or cluster with key not found'}), 400
+
+            model_data = self.scm.get_cluster_model(site_id, cluster_key)
         elif aggregation_level == AggregationLevel.global_:
             model_data = self.scm.get_global_model()
         else:

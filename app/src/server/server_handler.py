@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import json
 
 from src.shared.model.site import Site
 from src.server.federated_server import FederatedServer
@@ -16,7 +17,7 @@ if __name__ == "__main__":
     for _, row in site_infos.iterrows():
         site = Site(
             site_id=row['site_id'],
-            cluster=int(row['cluster']),
+            clusters=json.loads(row["clusters"].replace("\'", "\"")),
             lat=float(row['lat']),
             lng=float(row['lng']),
             zip=int(row['zip']),

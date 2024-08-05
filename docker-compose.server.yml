@@ -14,7 +14,7 @@ services:
       - "5555:5555"
     volumes:
       - server-data:/data
-      - /tmp/test_data/site_info.csv:/test_data/site_info.csv:ro
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_info.csv:/test_data/site_info.csv:ro
     networks:
       - federated-network
 
@@ -25,4 +25,4 @@ volumes:
 networks:
   federated-network:
     driver: bridge
-    external: false
+    external: true

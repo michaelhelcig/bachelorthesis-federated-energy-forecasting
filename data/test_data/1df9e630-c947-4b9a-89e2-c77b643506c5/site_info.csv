@@ -1,6 +1,6 @@
 ,1
 site_id,1df9e630-c947-4b9a-89e2-c77b643506c5
-cluster,1
+clusters,"{'location': 1, 'orientation': 1}"
 lat,0
 lng,0
 zip,1220

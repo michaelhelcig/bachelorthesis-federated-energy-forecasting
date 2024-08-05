@@ -1,6 +1,6 @@
 class Site:
     site_id: str
-    cluster: int
+    clusters: dict
     lat: float
     lng: float
     zip: int
@@ -8,9 +8,9 @@ class Site:
     kwp: float
     weather_data: bool
 
-    def __init__(self, site_id: str, cluster: int, lat: float, lng: float, zip: int, country: str, kwp: float, weather_data: bool):
+    def __init__(self, site_id: str, clusters: dict, lat: float, lng: float, zip: int, country: str, kwp: float, weather_data: bool):
         self.site_id = site_id
-        self.cluster = cluster
+        self.clusters = clusters
         self.lat = lat
         self.lng = lng
         self.zip = zip

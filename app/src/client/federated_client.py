@@ -115,7 +115,7 @@ class FederatedClient:
         
         # CHECKING CLOUDS
         # check if mean cloud coverage between 5 AM and 10 PM is higher than 50
-        if data[(data['time'].dt.hour >= 5) & (data['time'].dt.hour <= 20)]['clouds_relative'].mean() > 0.4:
+        if data[(data['time'].dt.hour >= 5) & (data['time'].dt.hour <= 20)]['clouds_relative'].mean() > 0.5:
             logging.error(f"Cloud coverage for date {data['time'].dt.date.unique()} is too high. Exiting training function.")
             return None
         
@@ -124,12 +124,14 @@ class FederatedClient:
             # check if avg is negative or higher than kwp * 1000
             if row[1]['avg'] < 0 or row[1]['avg'] > (float(self.site.kwp) * 1000) or row[1]['avg_24h'] < 0 or row[1]['avg_24h'] > (float(self.site.kwp) * 1000):
                 # delete row
+                print(f"Deleting row with avg: {row[1]['avg']} or avg_24h: {row[1]['avg_24h']}")
                 data = data.drop(row[0])
 
             # check if one of the constants.features is NaN
             if any(row[1][constants.features].isnull()):
-                # delete row
-                data = data.drop(row[0])
+                # delete row (check if exists)
+                if row[0] in data.index:
+                    data = data.drop(row[0])
 
         # check size
         if len(data) != constants.values_per_day * constants.training_days:
@@ -284,10 +286,10 @@ class FederatedClient:
             'predicted_cluster_orientation': predictions_cluster_orientation_model,
             'predicted_global': predictions_global_model,
             'predicted_avg_local_global': avg_local_global,
-            'cluster_location_model_round': cluster_location_model.num_round,
-            'cluster_orientation_model_round': cluster_orientation_model.num_round,
-            'local_model_round': local_model.num_round,
-            'global_model_round': global_model.num_round,
+            'cluster_location_model_round': cluster_location_model.num_round if cluster_location_model else None,
+            'cluster_orientation_model_round': cluster_orientation_model.num_round if cluster_orientation_model else None,
+            'local_model_round': local_model.num_round if local_model else None,
+            'global_model_round': global_model.num_round if global_model else None,
             'actual': data['avg'].values,
             'ghi': data['ghi'].values,
             'solar_rad': data['solar_rad'].values,
@@ -314,10 +316,10 @@ class FederatedClient:
                 'predicted_cluster_orientation': utils.accumulated_energy(data_day['predicted_cluster_orientation'].values),
                 'predicted_global': utils.accumulated_energy(data_day['predicted_global'].values),
                 'predicted_avg_local_global': utils.accumulated_energy(data_day['predicted_avg_local_global'].values),
-                'cluster_location_model_round': cluster_location_model.num_round,
-                'cluster_orientation_model_round': cluster_orientation_model.num_round,
-                'local_model_round': local_model.num_round,
-                'global_model_round': global_model.num_round,
+                'cluster_location_model_round': cluster_location_model.num_round if cluster_location_model else None,
+                'cluster_orientation_model_round': cluster_orientation_model.num_round if cluster_orientation_model else None,
+                'local_model_round': local_model.num_round if local_model else None,
+                'global_model_round': global_model.num_round if global_model else None,
                 'actual': utils.accumulated_energy(data_day['actual'].values),
                 'ghi': data_day['ghi'].values,
                 'solar_rad': data_day['solar_rad'].values,
@@ -452,33 +454,37 @@ class FederatedClient:
         updated_model_data, model_delta_meta, loss_df = self._train_model(level, model_data, dates, data, cluster_key)
         return updated_model_data, model_delta_meta, loss_df, level, cluster_key
 
-    def process_data(self, data):
+    def process_data(self, data_arr):
+        data = pd.DataFrame()
+        dates = []
+
+        for data_item in data_arr:
+            if data_item is None or data_item.empty:
+                logging.error(f"No data found for value_key.")
+                continue
+
+            item_dates = data_item['time'].dt.date.unique()
+            item_dates.sort()
+
+            if not self.check_dates(item_dates):
+                continue
+            
+            if data_item is None or len(data_item) != constants.values_per_day * constants.training_days:
+                logging.info(f"Data for date {utils.dates_to_daystrings(item_dates)} is incomplete. Exiting training function.")
+                continue
+            
+            data_item = self._preprocess_data(data_item)
+
+            if data_item is None:
+                continue
+            
+            data = pd.concat([data, data_item], ignore_index=True)
+            dates += item_dates.tolist()
+
         if data is None or data.empty:
             logging.error(f"No data found for value_key: {self.value_key}. Exiting function.")
             return None
 
-        dates = data['time'].dt.date.unique()
-        dates.sort()
-
-        if not self.check_dates(dates):
-            return None
-        
-        if data is None or len(data) != constants.values_per_day * constants.training_days:
-            logging.info(f"Data for date {utils.dates_to_daystrings(dates)} is incomplete. Exiting training function.")
-            return None
-        
-        # check if some dates are in learned_dates
-        for date in dates:
-            if date.strftime('%Y-%m-%d') in self.model_data.learned_dates:
-                logging.info(f'Already learned data for date {date}, ignore ...')
-                return None
-
-
-        data = self._preprocess_data(data)
-
-        if data is None:
-            logging.error(f"No data found for date {utils.dates_to_daystrings(dates)}. Exiting function.")
-            return None
 
         logging.info(f'Data complete and well shaped, start training ...')
         loss_all_df = pd.DataFrame()
@@ -493,11 +499,15 @@ class FederatedClient:
                 elif level == AggregationLevel.cluster:
                     for cluster_key in self.site.clusters.keys():
                         model_data = self._get_server_model(level, cluster_key)
+                        if model_data is None:
+                            continue
                         logging.info(f"Start training for {level} ...")
                         future = executor.submit(self._train_and_save_model, model_data, dates, data, level, cluster_key)
                         futures.append(future)
                 else:
                     model_data = self._get_server_model(level)
+                    if model_data is None:
+                        continue
                     logging.info(f"Start training for {level} ...")
                     future = executor.submit(self._train_and_save_model, model_data, dates, data, level)
                     futures.append(future)

@@ -13,6 +13,6 @@ kernel_regularization = 0.05  # Kernel regularization
 
 
 # features
-features = ['solar_rad_relative', 'ghi_relative', 'snow_depth_relative', 'precip_relative', 'clouds_relative', 'minute_of_day_relative', 'day_of_year_relative', 'whole_day_energy_24h_relative']
+features = ['solar_rad_relative', 'ghi_relative', 'snow_depth_relative', 'precip_relative', 'clouds_relative', 'minute_of_day_relative', 'day_of_year_relative']
 target = ['avg_relative']
 

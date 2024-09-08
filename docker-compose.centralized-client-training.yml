@@ -1,0 +1,24 @@
+
+version: '3'
+services:
+  federated-client-centralized:
+    container_name: federated-client-centralized
+    build:
+      context: app
+      dockerfile: docker/client-centralized/Dockerfile
+    environment:
+      - SITE_IDS=d34f66ce-a330-44f1-a8a6-b04e030ffff1,a2d30421-5731-435a-b7ba-03d37ff0e0ce,30affaa5-128f-4068-95fb-efd40ea860b5,88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb,a62e58d7-8b9a-4531-9ca5-323d136dcec0,6045bd8d-1754-4963-b3cb-c703110ac5ac,1530d0df-759c-482f-9450-c5e079fbc7ef,60f50416-f2b0-4191-b82d-c71ba439d558,13d3ac14-1ba1-4271-bf0f-39e219b97aca,ad5085d3-c72a-4a63-bf4f-56cb767b4633,ba7b379a-829d-41cc-bc5d-04eeef3c5020
+      - TEST_DATA_PATH=/test_data
+      - SHARED_DATA_PATH=/shared_data
+      - DATA_PATH=/data
+      - VALUE_KEY=POWER_PRODUCTION
+      - RUN_TRAINING=True
+      - RUN_PREDICTION=False
+    volumes:
+      - client-centralized-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data:/test_data:ro
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/centralized/training:/shared_data
+
+volumes:
+  client-centralized-data:
+    external: false

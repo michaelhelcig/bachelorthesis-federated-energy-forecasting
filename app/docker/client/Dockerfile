@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . .
 
-CMD ["python", "-m", "src.client.client_handler"]
+CMD ["python", "-m", "src.client.federated_client_handler"]

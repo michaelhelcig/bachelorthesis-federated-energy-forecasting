@@ -76,6 +76,19 @@ if __name__ == "__main__":
                 if mask.any():
                     print("Setting window data to training data")
                     window_data = data[mask]
+
+                df_power, df_energy = client_continual.predict_data(window_data)
+
+                if df_power is not None and df_energy is not None:
+                    with open(f'{shared_data_path_continual}/training_all_power.csv', 'a') as f:
+                        fcntl.flock(f, fcntl.LOCK_EX)
+                        df_power.to_csv(f, header=f.tell()==0, index=False)
+                        fcntl.flock(f, fcntl.LOCK_UN)
+
+                    with open(f'{shared_data_path_continual}/training_all_acc_energy.csv', 'a') as f:
+                        fcntl.flock(f, fcntl.LOCK_EX)
+                        df_energy.to_csv(f, header=f.tell()==0, index=False)
+                        fcntl.flock(f, fcntl.LOCK_UN)
                 
                 loss_df = client_continual.process_data([window_data])
                 if loss_df is not None:
@@ -86,6 +99,18 @@ if __name__ == "__main__":
 
                 all_window_data.append(window_data)
 
+                df_power, df_energy = client_all.predict_data(window_data)
+
+                if df_power is not None and df_energy is not None:
+                    with open(f'{shared_data_path_all}/training_all_power.csv', 'a') as f:
+                        fcntl.flock(f, fcntl.LOCK_EX)
+                        df_power.to_csv(f, header=f.tell()==0, index=False)
+                        fcntl.flock(f, fcntl.LOCK_UN)
+
+                    with open(f'{shared_data_path_all}/training_all_acc_energy.csv', 'a') as f:
+                        fcntl.flock(f, fcntl.LOCK_EX)
+                        df_energy.to_csv(f, header=f.tell()==0, index=False)
+                        fcntl.flock(f, fcntl.LOCK_UN)
 
             loss_df = client_all.process_data(all_window_data)
             if loss_df is not None:

@@ -2,13 +2,13 @@
 version: '3'
 services:
   
-  federated-client-d34f66ce-a330-44f1-a8a6-b04e030ffff1:
-    container_name: federated-client-d34f66ce-a330-44f1-a8a6-b04e030ffff1
+  federated-client-site_0030:
+    container_name: federated-client-site_0030
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=d34f66ce-a330-44f1-a8a6-b04e030ffff1
+      - SITE_ID=site_0030
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -18,19 +18,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-d34f66ce-a330-44f1-a8a6-b04e030ffff1-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/d34f66ce-a330-44f1-a8a6-b04e030ffff1:/test_data:ro
+      - client-site_0030-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0030:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-a2d30421-5731-435a-b7ba-03d37ff0e0ce:
-    container_name: federated-client-a2d30421-5731-435a-b7ba-03d37ff0e0ce
+  federated-client-site_0027:
+    container_name: federated-client-site_0027
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=a2d30421-5731-435a-b7ba-03d37ff0e0ce
+      - SITE_ID=site_0027
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -40,19 +40,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-a2d30421-5731-435a-b7ba-03d37ff0e0ce-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/a2d30421-5731-435a-b7ba-03d37ff0e0ce:/test_data:ro
+      - client-site_0027-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0027:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-30affaa5-128f-4068-95fb-efd40ea860b5:
-    container_name: federated-client-30affaa5-128f-4068-95fb-efd40ea860b5
+  federated-client-site_0022:
+    container_name: federated-client-site_0022
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=30affaa5-128f-4068-95fb-efd40ea860b5
+      - SITE_ID=site_0022
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -62,19 +62,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-30affaa5-128f-4068-95fb-efd40ea860b5-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/30affaa5-128f-4068-95fb-efd40ea860b5:/test_data:ro
+      - client-site_0022-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0022:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb:
-    container_name: federated-client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb
+  federated-client-site_0024:
+    container_name: federated-client-site_0024
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb
+      - SITE_ID=site_0024
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -84,19 +84,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb:/test_data:ro
+      - client-site_0024-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0024:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-a62e58d7-8b9a-4531-9ca5-323d136dcec0:
-    container_name: federated-client-a62e58d7-8b9a-4531-9ca5-323d136dcec0
+  federated-client-site_0009:
+    container_name: federated-client-site_0009
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=a62e58d7-8b9a-4531-9ca5-323d136dcec0
+      - SITE_ID=site_0009
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -106,19 +106,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-a62e58d7-8b9a-4531-9ca5-323d136dcec0-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/a62e58d7-8b9a-4531-9ca5-323d136dcec0:/test_data:ro
+      - client-site_0009-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0009:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-6045bd8d-1754-4963-b3cb-c703110ac5ac:
-    container_name: federated-client-6045bd8d-1754-4963-b3cb-c703110ac5ac
+  federated-client-site_0005:
+    container_name: federated-client-site_0005
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=6045bd8d-1754-4963-b3cb-c703110ac5ac
+      - SITE_ID=site_0005
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -128,19 +128,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-6045bd8d-1754-4963-b3cb-c703110ac5ac-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/6045bd8d-1754-4963-b3cb-c703110ac5ac:/test_data:ro
+      - client-site_0005-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0005:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-1530d0df-759c-482f-9450-c5e079fbc7ef:
-    container_name: federated-client-1530d0df-759c-482f-9450-c5e079fbc7ef
+  federated-client-site_0018:
+    container_name: federated-client-site_0018
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=1530d0df-759c-482f-9450-c5e079fbc7ef
+      - SITE_ID=site_0018
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -150,19 +150,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-1530d0df-759c-482f-9450-c5e079fbc7ef-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/1530d0df-759c-482f-9450-c5e079fbc7ef:/test_data:ro
+      - client-site_0018-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0018:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-60f50416-f2b0-4191-b82d-c71ba439d558:
-    container_name: federated-client-60f50416-f2b0-4191-b82d-c71ba439d558
+  federated-client-site_0006:
+    container_name: federated-client-site_0006
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=60f50416-f2b0-4191-b82d-c71ba439d558
+      - SITE_ID=site_0006
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -172,19 +172,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-60f50416-f2b0-4191-b82d-c71ba439d558-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/60f50416-f2b0-4191-b82d-c71ba439d558:/test_data:ro
+      - client-site_0006-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0006:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-13d3ac14-1ba1-4271-bf0f-39e219b97aca:
-    container_name: federated-client-13d3ac14-1ba1-4271-bf0f-39e219b97aca
+  federated-client-site_0017:
+    container_name: federated-client-site_0017
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=13d3ac14-1ba1-4271-bf0f-39e219b97aca
+      - SITE_ID=site_0017
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -194,19 +194,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-13d3ac14-1ba1-4271-bf0f-39e219b97aca-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/13d3ac14-1ba1-4271-bf0f-39e219b97aca:/test_data:ro
+      - client-site_0017-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0017:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-ad5085d3-c72a-4a63-bf4f-56cb767b4633:
-    container_name: federated-client-ad5085d3-c72a-4a63-bf4f-56cb767b4633
+  federated-client-site_0028:
+    container_name: federated-client-site_0028
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=ad5085d3-c72a-4a63-bf4f-56cb767b4633
+      - SITE_ID=site_0028
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -216,19 +216,19 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-ad5085d3-c72a-4a63-bf4f-56cb767b4633-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/ad5085d3-c72a-4a63-bf4f-56cb767b4633:/test_data:ro
+      - client-site_0028-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0028:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
-  federated-client-ba7b379a-829d-41cc-bc5d-04eeef3c5020:
-    container_name: federated-client-ba7b379a-829d-41cc-bc5d-04eeef3c5020
+  federated-client-site_0012:
+    container_name: federated-client-site_0012
     build:
       context: app
       dockerfile: docker/client/Dockerfile
     environment:
-      - SITE_ID=ba7b379a-829d-41cc-bc5d-04eeef3c5020
+      - SITE_ID=site_0012
       - SERVER_ADDRESS=federated-server
       - SERVER_PORT=5555
       - TEST_DATA_PATH=/test_data
@@ -238,35 +238,35 @@ services:
       - RUN_TRAINING=True
       - RUN_PREDICTION=False
     volumes:
-      - client-ba7b379a-829d-41cc-bc5d-04eeef3c5020-data:/data
-      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/ba7b379a-829d-41cc-bc5d-04eeef3c5020:/test_data:ro
+      - client-site_0012-data:/data
+      - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/test_data/site_0012:/test_data:ro
       - /Users/michael/repos/tuwien/bachelor-thesis/lstm-federated/data/shared_data/federated/training:/shared_data
     networks:
       - federated-network
   
 
 volumes:
-  client-d34f66ce-a330-44f1-a8a6-b04e030ffff1-data:
+  client-site_0030-data:
     external: false
-  client-a2d30421-5731-435a-b7ba-03d37ff0e0ce-data:
+  client-site_0027-data:
     external: false
-  client-30affaa5-128f-4068-95fb-efd40ea860b5-data:
+  client-site_0022-data:
     external: false
-  client-88ff6cd9-f81f-42e5-ad6c-b0ce7fc217bb-data:
+  client-site_0024-data:
     external: false
-  client-a62e58d7-8b9a-4531-9ca5-323d136dcec0-data:
+  client-site_0009-data:
     external: false
-  client-6045bd8d-1754-4963-b3cb-c703110ac5ac-data:
+  client-site_0005-data:
     external: false
-  client-1530d0df-759c-482f-9450-c5e079fbc7ef-data:
+  client-site_0018-data:
     external: false
-  client-60f50416-f2b0-4191-b82d-c71ba439d558-data:
+  client-site_0006-data:
     external: false
-  client-13d3ac14-1ba1-4271-bf0f-39e219b97aca-data:
+  client-site_0017-data:
     external: false
-  client-ad5085d3-c72a-4a63-bf4f-56cb767b4633-data:
+  client-site_0028-data:
     external: false
-  client-ba7b379a-829d-41cc-bc5d-04eeef3c5020-data:
+  client-site_0012-data:
     external: false
   
 

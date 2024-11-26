@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository is for my Thesis at Technical University of Vienna (TU Wien) in Bachelor Software and Information Engineering. It contains the code, a brief abstract, and one example used in the research. The thesis focuses on Federated Continual Learning for privacy-focused energy forecasting, combining machine learning techniques and federated learning principles to predict energy production while maintaining data privacy. This repository is intended to showcase the research conducted during my studies and is not intended for production use.
+This repository is for my thesis at Technical University of Vienna (TU Wien) for the Bachelor's degree in Software and Information Engineering. It contains the code, a brief abstract, and one example used in the research. The thesis focuses on Federated Continual Learning for privacy-focused energy forecasting, combining machine learning techniques and federated learning principles to predict energy production while maintaining data privacy. This repository is intended to showcase the research conducted during my studies and is not intended for production use.
 
 
 ## Abstract
@@ -23,7 +23,7 @@ demonstrating a privacy-preserving, scalable, and adaptable approach.
 
 ## Example of Predictions
 
-The following figures provide examples of predictions for Site 0027 during the period from 2023-06-26 to 2023-07-02. These plots demonstrate the different approaches used to forecast energy production, including federated and centralized methods.
+The following figures provide examples of predictions for a site during the period from 2023-06-26 to 2023-07-02. These plots demonstrate the different federated and centralized approaches.
 
 ### Federated Approaches
 
